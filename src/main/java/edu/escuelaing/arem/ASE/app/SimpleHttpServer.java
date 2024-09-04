@@ -66,7 +66,7 @@ public class SimpleHttpServer {
         }
     }
 
-    private static void handleRequest(Socket clientSocket) {
+    public static void handleRequest(Socket clientSocket) {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
              OutputStream out = clientSocket.getOutputStream()) {
 
@@ -153,7 +153,7 @@ public class SimpleHttpServer {
         out.write(response.getBytes());
     }
 
-    private static RequestDetails parseRequest(String requestLine) {
+    public static RequestDetails parseRequest(String requestLine) {
         String[] parts = requestLine.split("\\s+");
         if (parts.length < 2) {
             return new RequestDetails(DEFAULT_PATH, new HashMap<>());
@@ -173,7 +173,7 @@ public class SimpleHttpServer {
         return new RequestDetails(path.equals(DEFAULT_PATH) ? INDEX_FILE : path, queryParams);
     }
 
-    private static Map<String, String> parseQueryString(String queryString) {
+    public static Map<String, String> parseQueryString(String queryString) {
         Map<String, String> queryParams = new HashMap<>();
         String[] pairs = queryString.split("&");
         for (String pair : pairs) {
@@ -185,7 +185,7 @@ public class SimpleHttpServer {
         return queryParams;
     }
 
-    private static Object[] extractArguments(Method method, Map<String, String> queryParams) {
+    public static Object[] extractArguments(Method method, Map<String, String> queryParams) {
         return java.util.Arrays.stream(method.getParameters())
                 .map(param -> extractParameterValue(param, queryParams))
                 .toArray();
@@ -200,7 +200,7 @@ public class SimpleHttpServer {
         return null;
     }
 
-    private static class RequestDetails {
+    public static class RequestDetails {
         final String path;
         final Map<String, String> queryParams;
 

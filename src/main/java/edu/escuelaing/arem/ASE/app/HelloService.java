@@ -17,7 +17,7 @@ import java.util.UUID;
 @RestController
 public class HelloService {
 
-    private static final String STATIC_FILES_DIR = "src/main/resources";
+    public static String STATIC_FILES_DIR = "src/main/resources";
 
     @GetMapping("/hello")
     public static String hello() {
