@@ -87,7 +87,10 @@ To run different components of the project, use the following commands:
 
 1. **Clone the repository:**
    ``` bash
-   git clone https://github.com/Erick01081/Lab3Arep.git cd Lab3Arep
+   git clone https://github.com/Erick01081/Lab3Arep.git
+   ```
+   ``` bash
+   cd Lab3Arep
    ```
 2. **Compile the project:**
    ``` bash
