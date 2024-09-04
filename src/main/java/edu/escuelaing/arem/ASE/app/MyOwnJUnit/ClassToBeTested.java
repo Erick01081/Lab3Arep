@@ -1,4 +1,4 @@
-package edu.escuelaing.arem.ASE.app;
+package edu.escuelaing.arem.ASE.app.MyOwnJUnit;
 
 public class ClassToBeTested {
     @Test

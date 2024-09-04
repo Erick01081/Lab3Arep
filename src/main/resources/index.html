@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelloService Interface</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 10px 0;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        div {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        #response {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<h1>HelloService Interface</h1>
+
+<form>
+    <label for="name">Greeting (with name):</label>
+    <input type="text" id="name" name="name" value="John">
+    <input type="button" value="Get Greeting" onclick="loadGreeting()">
+</form>
+
+<form>
+    <input type="button" value="Get Hello" onclick="loadHello()">
+    <input type="button" value="Get PI" onclick="loadPi()">
+    <input type="button" value="Get Capitalized Text" onclick="loadCapitalized()">
+    <input type="button" value="Get Current Time" onclick="loadTime()">
+    <input type="button" value="Get UUID" onclick="loadUUID()">
+    <input type="button" value="Get Day of the Week" onclick="loadDayOfWeek()">
+    <input type="button" value="Get Date and Time" onclick="loadHorayDia()">
+</form>
+
+<h2>Load Static File</h2>
+<form>
+    <label for="filename">File Name (from resources folder):</label>
+    <input type="text" id="filename" name="filename" value="index.html">
+    <input type="button" value="Load File" onclick="loadStaticFile()">
+</form>
+
+<div id="response"></div>
+
+<script>
+    function loadGreeting() {
+        let nameVar = document.getElementById("name").value;
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "/greeting?name=" + nameVar, true);
+        xhttp.send();
+    }
+
+    function loadHello() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "/hello", true);
+        xhttp.send();
+    }
+
+    function loadPi() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "/pi", true);
+        xhttp.send();
+    }
+
+    function loadCapitalized() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "/capitalized", true);
+        xhttp.send();
+    }
+
+    function loadTime() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "/time", true);
+        xhttp.send();
+    }
+
+    function loadUUID() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "/uuid", true);
+        xhttp.send();
+    }
+
+    function loadDayOfWeek() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "/dayofweek", true);
+        xhttp.send();
+    }
+
+    function loadHorayDia() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "/horaydia", true);
+        xhttp.send();
+    }
+
+    function loadStaticFile() {
+        let fileName = document.getElementById("filename").value;
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            document.getElementById("response").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "/staticfile?file=" + fileName, true);
+        xhttp.send();
+    }
+</script>
+
+</body>
+</html>
