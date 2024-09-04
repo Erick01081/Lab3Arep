@@ -94,7 +94,40 @@ To run different components of the project, use the following commands:
    ```
 2. **Compile the project:**
    ``` bash
-   javac -d bin src/edu/escuelaing/arem/ASE/app/*.java
+   mvn clean install
    ```
+3. **Run the test:**
+   ``` bash
+   java -cp target/reflexion-app-1.0-SNAPSHOT.jar edu.escuelaing.arem.ASE.app.MyOwnJUnit.JUnitECI edu.escuelaing.arem.ASE.app.MyOwnJUnit.ClassToBeTested
+    ```
+   The project incorporates a testing framework that utilizes the **@Test** annotation to designate test methods. The **JUnitEci** class manages the execution of these tests and provides feedback on their outcomes. Test cases are specified within the ClassToBeTested class, with each method marked to denote its role as a test.
 
+   ![image](https://github.com/user-attachments/assets/75c019f6-8bd4-4201-a212-6260e2503141)
 
+4. **Running the SpringECI Utility:**
+    ``` bash
+   java -cp target/reflexion-app-1.0-SNAPSHOT.jar edu.escuelaing.arem.ASE.app.SpringECI edu.escuelaing.arem.ASE.app.HelloService
+   ```
+   This command executes methods in the **HelloService** class according to the URL specified in the code. You can adjust the URL within the **SpringECI** class as required.
+
+   ![image](https://github.com/user-attachments/assets/c0efebf8-440b-4876-8e11-f99242932bce)
+5. **Running the HTTP Server:**
+   ``` bash
+   java -cp target/classes edu.escuelaing.arem.ASE.app.SimpleHttpServer
+   ```
+   ![image](https://github.com/user-attachments/assets/df6d4272-4442-4bab-9b33-e36562bdedd7)
+
+   The class starts an HTTP server at http://localhost:8080/index.html
+
+   ![Multimedia2](https://github.com/user-attachments/assets/e2c6e9b9-e7b6-40ac-822d-9c8edc8cdd2a)
+   ![image](https://github.com/user-attachments/assets/b7e82853-9a9c-4468-ab2b-1302bd43f4cc)
+   ![image](https://github.com/user-attachments/assets/0bf797fc-e1fb-4ba8-880d-a9aef44ae505)
+
+## Built With
+
+* [Java](https://www.oracle.com/java/) - Programming language used
+* [JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) - Java Development Kit
+
+## Authors
+
+* Erick Montero
